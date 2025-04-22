@@ -1,23 +1,24 @@
-const add = (x,y) => x+y;
-const subtract = (x,y) => x-y;
-const multiply = (x,y) => x*y;
-const divide = (x,y) => x/y;
+let add = (x,y) => x+y;
+let subtract = (x,y) => x-y;
+let multiply = (x,y) => x*y;
+let divide = (x,y) => x/y;
 
+let x = null;
+let op = "";
+let y = null;
 
-let result = null;
-
-let operate = (num1, op, num2) => {
-    if(op==='+'){
-        result = add(num1,num2);
+let operation = (x,op,y) =>{
+    if(op === "+"){
+        return add(x,y);
     }
-    else if(op ==='-'){
-        result = subtract(num1,num2);
+    else if(op === "-"){
+        return subtract(x,y);
     }
-    else if(op ==='*'){
-        result = multiply(num1,num2);
+    else if(op === "*"){
+        return multiply(x,y);
     }
-    else if(op ==='/'){
-        result = divide(num1,num2);
+    else if(op === "/"){
+        return divide(x,y);
     }
-    return result;
 }
+
