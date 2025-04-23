@@ -14,7 +14,7 @@ let operation = (x,op,y) =>{
     else if(op === "-"){
         return subtract(x,y);
     }
-    else if(op === "*"){
+    else if(op === "x"){
         return multiply(x,y);
     }
     else if(op === "/"){
@@ -31,9 +31,35 @@ let displaynum = (event) => {
     
     if(val === "AC"){
         display.innerHTML = "";
+        x = null; op = ""; y = null;
         return;
     }
-    
+
+    if(["/","x","-","+"].includes(val)){
+        x = parseInt(display.textContent);
+        op = val;
+        display.textContent = "";
+        return;
+    }
+
+    if(val === "="){
+        if(op && display.textContent !== ""){
+            y = parseInt(display.textContent);
+            if(y===0){
+                display.textContent = "ERROR!";
+                return;
+            }
+            else{
+            const result = operation(x,op,y);
+            display.textContent = result;
+            x = result;
+            op = "";
+            y = null;
+            }
+        }
+        return;
+    }
+
     display.textContent += val;
 
 }
@@ -41,5 +67,4 @@ let displaynum = (event) => {
 chara.forEach(btn =>
     btn.addEventListener("click",displaynum)
 );
-
 
