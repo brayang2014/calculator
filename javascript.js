@@ -22,3 +22,24 @@ let operation = (x,op,y) =>{
     }
 }
 
+let chara = document.querySelectorAll("button");
+let display = document.querySelector(".display");
+
+let displaynum = (event) => {
+    const btn = event.target;
+    const val = btn.textContent;
+    
+    if(val === "AC"){
+        display.innerHTML = "";
+        return;
+    }
+    
+    display.textContent += val;
+
+}
+
+chara.forEach(btn =>
+    btn.addEventListener("click",displaynum)
+);
+
+
