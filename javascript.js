@@ -45,7 +45,7 @@ let displaynum = (event) => {
     if(val === "="){
         if(op && display.textContent !== ""){
             y = parseInt(display.textContent);
-            if(y===0){
+            if(op === "/" && y===0){
                 display.textContent = "ERROR!";
                 return;
             }
